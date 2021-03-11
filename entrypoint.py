@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import sys
 import argparse
 import warnings
@@ -11,13 +12,13 @@ warnings.filterwarnings('ignore')
 
 
 def sys_path():
-    path = './phantomjs/bin/'
+    path = os.path.join(os.getcwd(), 'phantomjs', 'bin')
     if sys.platform.startswith('win'):
-        return path + 'phantomjs.exe'
+        return os.path.join(path, 'phantomjs.exe')
     elif sys.platform.startswith('linux'):
-        return path + 'phantomjs-linux'
+        return os.path.join(path, 'phantomjs-linux')
     elif sys.platform.startswith('darwin'):
-        return path + 'phantomjs'
+        return os.path.join(path, 'phantomjs')
     else:
         raise Exception('暂不支持该系统')
 
@@ -38,6 +39,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print('Driver Launching...')
+    assert os.path.isfile(sys_path())
     driver_pjs = webdriver.PhantomJS(
         executable_path=sys_path(),
         service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
