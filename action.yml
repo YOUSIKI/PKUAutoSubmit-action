@@ -44,7 +44,7 @@ inputs:
   sckey:
     description: "方糖 sckey"
     required: true
-    default: ""
+    default: "xxxxxxxx"
 
 outputs:
   time:
