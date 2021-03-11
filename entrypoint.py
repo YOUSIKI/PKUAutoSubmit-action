@@ -42,7 +42,7 @@ if __name__ == '__main__':
     assert os.path.isfile(sys_path())
     driver_pjs = webdriver.PhantomJS(
         executable_path=sys_path(),
-        # service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1']
+        service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'],
     )
     print('Driver Launched\n')
 
