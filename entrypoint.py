@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 
+import sys
 import argparse
 import warnings
-import sys
-import os
-import re
+from selenium import webdriver
 
-import env_check
-from func import *
+from func import run
 
 warnings.filterwarnings('ignore')
 
