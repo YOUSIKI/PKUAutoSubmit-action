@@ -1,0 +1,67 @@
+name: "PKUAutoSubmit"
+
+description: "燕园云战役自动填报小助手"
+
+inputs:
+  username:
+    description: "IAAA 用户名"
+    required: true
+  password:
+    description: "IAAA 密码"
+    required: true
+  campus:
+    description: "所在校区 (燕园、万柳、畅春园、圆明园、中关新园)"
+    required: true
+    default: "燕园"
+  reason:
+    description: "出入校事由"
+    required: true
+    default: "恰饭"
+  in_habitation:
+    description: "入校前居住地 (北京、京外)"
+    required: true
+    default: "北京"
+  in_district:
+    description: "居住地所在区"
+    required: true
+    default: "海淀区"
+  in_street:
+    description: "居住地所在街道"
+    required: true
+    default: "燕园街道"
+  out_destination:
+    description: "出校目的地 (北京、京外)"
+    required: true
+    default: "北京"
+  out_track:
+    description: "出校行动轨迹"
+    required: true
+    default: "燕园-畅春园"
+  wechat:
+    description: "是否需要微信通知 (True / False)"
+    required: true
+    default: "False"
+  sckey:
+    description: "方糖 sckey"
+    required: true
+    default: ""
+
+outputs:
+  time:
+    description: "小助手运行时间"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.username }}
+    - ${{ inputs.password }}
+    - ${{ inputs.campus }}
+    - ${{ inputs.reason }}
+    - ${{ inputs.in_habitation }}
+    - ${{ inputs.in_district }}
+    - ${{ inputs.in_street }}
+    - ${{ inputs.out_destination }}
+    - ${{ inputs.out_track }}
+    - ${{ inputs.wechat }}
+    - ${{ inputs.sckey }}
