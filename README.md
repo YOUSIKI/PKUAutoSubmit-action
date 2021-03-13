@@ -39,3 +39,18 @@
 因为学号和密码等内容不适合明文放在仓库中（当然，如果你是 Private 仓库并且心很大的话，当我没说），
 我们一般将其作为仓库 Secrects 设置好，并在 `main.yml` 中通过 `${{ secrects.username }}` 这种方式调用。
 在此提醒，如果你是 Public 仓库，绝对不要直接在 `main.yml` 中使用明文记录 `username` 和 `password`。
+
+### Step4 手动运行查看结果
+
+在[我的配置文件](https://github.com/YOUSIKI/PKUAutoSubmit-Github-Action-Repo/blob/master/.github/workflows/autosubmit.yml)中，设置了手动运行 workflow 开关。
+你可以在如下位置找到开关，手动运行 PKUAutoSubmit：
+
+![](images/workflow_dispatch.png)
+
+运行后显示如下结果（“可以愉快的玩耍啦”）才是报备成功：
+
+![](images/success.png)
+
+## 常见问题
+
+写的不是多么完善，请保证所有输入参数都不为空字符串，比如 `reason` 和 `sckey` ，哪怕用不到也写个 `"xxxxxxx"`，不要空着。
