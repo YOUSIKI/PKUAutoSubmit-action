@@ -37,7 +37,7 @@
 ### Step3 设置仓库 Secrets
 
 因为学号和密码等内容不适合明文放在仓库中（当然，如果你是 Private 仓库并且心很大的话，当我没说），
-我们一般将其作为仓库 Secrects 设置好，并在 `main.yml` 中通过 `${{ secrects.username }}` 这种方式调用。
+我们一般将其作为仓库 Secrets 设置好，并在 `main.yml` 中通过 `${{ secrects.username }}` 这种方式调用。
 在此提醒，如果你是 Public 仓库，绝对不要直接在 `main.yml` 中使用明文记录 `username` 和 `password`。
 
 ### Step4 手动运行查看结果
